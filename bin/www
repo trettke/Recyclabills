@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-app.set('port', process.env.PORT || 3000);
+//app.set('port', process.env.PORT || 3000);
 var debug = require('debug')('Recyclabills');
 var app = require('../main');
 
