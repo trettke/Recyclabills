@@ -2,7 +2,7 @@
  * Created by trettke on 22/11/14.
  */
 $(document).ready(function() {
-    showNext("order")
+    showNext("order");
     $("#submitform").click(function() {
         $.ajax({
             url: "http://localhost:3001/charge",
@@ -21,6 +21,7 @@ function showNext(element) {
 
     $('.formStageBreadcrumb').css("color", "#cccccc");
     $('#Breadcrumb' + element).css("color", "#888888");
+    positionFooter();
 }
 
 function orderValue() {

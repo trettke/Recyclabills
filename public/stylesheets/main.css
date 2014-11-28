@@ -106,7 +106,7 @@ a.button.huge {
 
 a.button.small {
     font-size: 1.3em;
-    padding: 0px 30px 2px 30px;
+    padding: 0 30px 2px 30px;
 }
 
 a.button:hover {
@@ -168,6 +168,12 @@ div.formStage {
 div.full {
     width: 100%;
     max-width: 960px;
+}
+
+div.half {
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
 }
 
 div.header {
@@ -242,6 +248,12 @@ img.feature {
     margin: 0 auto 0 auto;
 }
 
+img.half-image {
+    width: 70%;
+    margin-left: 20%;
+    margin-top: 60px;
+}
+
 img.header {
     width: 42px;
     margin-right: 10px;
@@ -308,7 +320,7 @@ ul.menu {
     display: inline-block;
     float: right;
     height: 50px;
-    margin: 10px 20px 0px 20px;
+    margin: 10px 20px 0 20px;
 }
 
 ul.menu li {
@@ -318,7 +330,7 @@ ul.menu li {
 ul.menu li a {
     display: inline-block;
     font-size: 1.3em;
-    margin: 15px 20px 0px 20px;
+    margin: 15px 20px 0 20px;
     color: #888888;
 }
 
@@ -504,7 +516,12 @@ and (max-device-width: 480px) {
 
     div.half {
         width: 80%;
-        margin: 20px auto 60px auto;
+        margin: 30px 10% 60px 10%;
+    }
+
+    img.half-image {
+        width: 110%;
+        margin: 30px auto 30px auto;
     }
 
     img.wide {
