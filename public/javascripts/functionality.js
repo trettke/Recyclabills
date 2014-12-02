@@ -20,7 +20,7 @@ function showmenu() {
 
 function positionFooter() {
 
-    if ($(".container").height() + $(".footer").height() + 80 < $(window).height()) {
+    if ($(".container").height() + $(".footer").height() + 120 < $(window).height()) {
         $(".footer").css({"position": "absolute", "bottom": 0});
     } else {
         $(".footer").css({"position": "relative", "margin-top": 80});
