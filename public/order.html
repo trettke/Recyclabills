@@ -28,9 +28,9 @@
         </ul>
     </div>
 
-    <h1 class="inline">Order Recyclabills</h1>
+    <h1 class="inline marginit">Order Recyclabills</h1>
 
-    <div class="floatright">
+    <div class="floatright breadcrumbs">
         <a class="grey formStageBreadcrumb" id="Breadcrumborder" onclick="showNext('order')">Order</a>
         <img class="small" src="images/next.svg"/>
         <a class="lightgrey formStageBreadcrumb" id="Breadcrumbshipping" onclick="showNext('shipping')">Shipping</a>
@@ -58,8 +58,8 @@
                 <h4 class="grey inline nomargin-top">Total</h4>
                 <h4 id="total" class="inline nomargin-top">$10</h4>
 
-                <!--<a class="button" id="nextToShipping" onclick="showNext('shipping')">Next</a>-->
-                <a id="nextToPayment" onclick="showNext('shipping')"><img class="med" src="images/next.svg"/></a>
+                <a class="mobile button" onclick="showNext('shipping')">Next</a>
+                <a class="desktop" onclick="showNext('shipping')"><img class="med" src="images/next.svg"/></a>
             </div>
 
             <div class="formStage" id="shipping">
@@ -101,8 +101,8 @@
                     <input class="narrow" type="text" id="postcode" name="postcode"/>
                 </div>
                 <p class="nomargin-bottom black">*Australia only</p>
-                <!--<a class="button" id="nextToPayment" onclick="showNext('payment')">Next</a>-->
-                <a id="nextToPayment" onclick="showNext('payment')"><img class="med" src="images/next.svg"/></a>
+                <a class="mobile button" onclick="showNext('payment')">Next</a>
+                <a class="desktop" onclick="showNext('payment')"><img class="med" src="images/next.svg"/></a>
             </div>
 
             <div class="formStage" id="payment">
