@@ -4,10 +4,14 @@
       <env name="DEBUG" value="Recyclabills" />
     </envs>
     <browser name="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" url="http://localhost:3000/" />
+    <RunnerSettings RunnerId="Basic" />
     <RunnerSettings RunnerId="NodeJS.debug" />
     <RunnerSettings RunnerId="NodeJS.run" />
+    <RunnerSettings RunnerId="debuggableProgram" />
+    <ConfigurationWrapper RunnerId="Basic" />
     <ConfigurationWrapper RunnerId="NodeJS.debug" />
     <ConfigurationWrapper RunnerId="NodeJS.run" />
+    <ConfigurationWrapper RunnerId="debuggableProgram" />
     <method />
   </configuration>
 </component>
