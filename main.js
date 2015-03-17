@@ -28,15 +28,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', users);
 app.post('/process', function(req, res) {
     var pin = Pin.setup({
-        key: 'rkNspqDmfys1P5Clye93Mw',
-        production: false
+        key: 'Psq-3nQ84ip_UIJ3IVR5AA',
+        production: true
     });
 
-    var value = req.body.quantity * 1000;
+    var value = req.body.quantity * 100;
 
     pin.createCharge({
         amount: value,
-        description: 'test charge',
+        description: 'Recyclabills Order',
         email: req.body.email,
         ip_address: '203.192.1.172',
         card: {
@@ -133,6 +133,7 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
 app.listen(3001);
 
 module.exports = app;

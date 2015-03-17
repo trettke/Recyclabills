@@ -6,7 +6,7 @@ $(document).ready(function () {
     positionFooter();
 });
 
-$(window).onresize(function() {
+$(window).resize(function() {
     positionFooter();
 });
 

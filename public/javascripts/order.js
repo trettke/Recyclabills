@@ -53,11 +53,13 @@ function verifyFields() {
         state : $('#stateselect option:selected').text(),
         postcode : $('input[name="postcode"]').val(),
         cardname : $('input[name="cardname"]').val(),
-        cardnumber : $('input[name="cardnumber"]').val(),
+        cardnumber : $('input[name="cardnumber"]').val().replace(/ /g,''),
         expiryMonth : $('select[name="expiryMonth"] option:selected').text(),
         expiryYear : $('select[name="expiryYear"] option:selected').text(),
         cvc : $('input[name="cvc"]').val()
     };
+
+    console.log(fields.cardnumber);
 
     $("input").css({"border-color": "#cccccc", "color": "#888888"});
     $("input[type='submit']").css({"color": "#ffffff", "border-color": "#888888"});
