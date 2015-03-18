@@ -6,13 +6,24 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var Pin = require('pinjs');
 var fs = require('fs');
+var forceSSL = require('express-force-ssl');
+var http = require('http');
 var https = require('https');
 var mandrill = require('mandrill-api/mandrill');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var ssl_options = {
+    key: fs.readFileSync('./keys/private.key'),
+    cert: fs.readFileSync('./keys/cert.crt'),
+    ca: fs.readFileSync('./keys/intermediate.crt')
+};
+
 var app = express();
+
+var server = http.createServer(app);
+var secureServer = https.createServer(ssl_options, app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,6 +36,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(express.bodyParser());
+app.use(forceSSL);
+app.use(app.router);
 
 //http.get('*', function(req, res) {
 //    res.redirect('https://recyclabills.com'+req.url);
@@ -141,6 +156,8 @@ app.use(function(err, req, res, next) {
 
 app.listen(3001);
 //http.listen(3001);
+secureServer.listen(443);
+server.listen(80);
 
 module.exports = app;
 
