@@ -154,7 +154,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-app.listen(3001);
+app.listen(80);
 //http.listen(3001);
 secureServer.listen(443);
 server.listen(80);
