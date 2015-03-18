@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var Pin = require('pinjs');
 var fs = require('fs');
-var forceSSL = require('express-force-ssl');
+var forceSSL = require('force-ssl');
 //var http = require('http');
 //var https = require('https');
 var mandrill = require('mandrill-api/mandrill');
@@ -29,6 +29,8 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use(forceSSL);
+
 // uncomment after placing your favicon in /public
 // app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
@@ -38,7 +40,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use(express.bodyParser());
-app.use(forceSSL);
 //app.use(app.router);
 
 //http.get('*', function(req, res) {
