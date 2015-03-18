@@ -26,9 +26,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-http.get('*', function(req, res) {
-    res.redirect('https://recyclabills.com'+req.url);
-});
+//http.get('*', function(req, res) {
+//    res.redirect('https://recyclabills.com'+req.url);
+//});
 
 app.use('/users', users);
 app.post('/process', function(req, res) {
