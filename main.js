@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use(express.bodyParser());
 //app.use(forceSSL);
-app.use(app.router);
+//app.use(app.router);
 
 //http.get('*', function(req, res) {
 //    res.redirect('https://recyclabills.com'+req.url);
@@ -154,7 +154,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-app.listen(80);
+//app.listen(4000);
 //http.listen(3001);
 //secureServer.listen(443);
 //server.listen(80);
