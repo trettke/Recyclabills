@@ -49,11 +49,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', users);
 app.post('/process', function(req, res) {
     var pin = Pin.setup({
+        //PROD KEY
         key: 'Psq-3nQ84ip_UIJ3IVR5AA',
+
+        //TEST KEY
+        //key: 'rkNspqDmfys1P5Clye93Mw',
         production: true
     });
 
-    var value = req.body.quantity * 1000;
+    var value = req.body.quantity * 100;
 
     pin.createCharge({
         amount: value,
@@ -89,12 +93,14 @@ app.post('/process', function(req, res) {
                         "global_merge_vars" : [
                             {"name" : "name",
                                 "content" : req.body.first + ' ' + req.body.last},
-                            {"name" : "product",
-                                "content" : req.body.product},
+                            {"name" : "classic",
+                                "content" : req.body.classic},
+                            {"name" : "bifold",
+                                "content" : req.body.bifold},
                             {"name" : "quantity",
                                 "content" : req.body.quantity},
                             {"name" : "total",
-                                "content" : "$" + (value/100)},
+                                "content" : "$" + value},
                             {"name" : "address",
                                 "content" : req.body.address1 + '<br>' + req.body.address2 + '<br>' + req.body.city
                                     + '<br>' + req.body.state +', ' + req.body.postcode}

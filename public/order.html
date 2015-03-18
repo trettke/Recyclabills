@@ -41,22 +41,40 @@
 
     <div class="full">
         <form onsubmit="return verifyFields();" action="/process" method="post">
-            <div class="formStage" id="order">
+            <div class="formStage wider" id="order">
                 <h2 class="grey">What would you like?</h2>
 
-                <label for="product">Model</label>
-                <select id="product" name="product">
-                    <option value="Classic">Classic</option>
-                    <option value="Bi-Fold">Bi-Fold</option>
-                </select>
+                <div class="select-product opaque" id="classic-div">
+                    <h3 onclick="startClassic();">Classic</h3>
+                    <img onclick="startClassic();" class="select-product-image" src="images/classic.jpg">
+                    <h4>Quantity</h4>
 
-                <label for="quantity">Quantity</label>
-                <input type="number" id="quantity" name="quantity" value="1" onchange="updateTotal();"/><br/>
+                    <h4 class="grey">
+                        <a onclick="removeClassic();">&#10094</a> &nbsp;
+                        <span id="quantity-classic">0</span> &nbsp;
+                        <a onclick="addClassic();">&#10095</a>
+                    </h4>
+                </div>
+
+                <div class="select-product opaque" id="bifold-div">
+                    <h3 onclick="startBifold();">Bi-Fold</h3>
+                    <img onclick="startBifold();" class="select-product-image" src="images/bifold.jpg">
+                    <h4>Quantity</h4>
+
+                    <h4 class="grey">
+                        <a onclick="removeBifold();">&#10094</a> &nbsp;
+                        <span id="quantity-bifold">0</span> &nbsp;
+                        <a onclick="addBifold();">&#10095</a>
+                    </h4>
+                </div>
+
+                <!--<label for="quantity">Quantity</label>-->
+                <!--<input type="number" id="quantity" name="quantity" value="1" onchange="updateTotal();"/><br/>-->
 
                 <div class="left-line"></div>
 
-                <h4 class="grey inline nomargin-top">Total</h4>
-                <h4 id="total" class="inline nomargin-top">$10</h4>
+                <h4 class="grey inline nomargin-top">Total &nbsp;</h4>
+                <h4 id="total" class="inline nomargin-top">$0</h4>
 
                 <a class="mobile button" onclick="showNext('shipping')">Next</a>
                 <a class="desktop" onclick="showNext('shipping')"><img class="med" src="images/next.svg"/></a>
@@ -151,6 +169,10 @@
                 <input type="submit" value="Send it!" />
                 <img class="floatright" style="margin: 24px 30px 0 0; opacity: 0.5;" src="images/powered_by_light_fill.svg" />
             </div>
+
+            <input name="quantity" class="hidden" value="0">
+            <input name="classic" class="hidden" value="0">
+            <input name="bifold" class="hidden" value="0">
         </form>
 
 
@@ -169,4 +191,6 @@
 </div>
 
 </body>
+
+
 </html>

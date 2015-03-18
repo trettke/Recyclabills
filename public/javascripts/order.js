@@ -5,7 +5,7 @@ $(document).ready(function() {
     showNext("order");
     $("#submitform").click(function() {
         $.ajax({
-            url: "http://localhost:3001/charge",
+            url: "http://localhost:3000/charge",
             type: "GET",
             success: function(resp){
                 console.log(resp);
@@ -14,6 +14,77 @@ $(document).ready(function() {
         });
     });
 });
+
+var classicQuant = 0;
+var bifoldQuant = 0;
+var totalQuant = 0;
+
+function setTotal () {
+    totalQuant = classicQuant + bifoldQuant;
+    updateTotal();
+    console.log(totalQuant);
+}
+
+function refreshDisplayedQuantities() {
+    $('#quantity-classic').html(classicQuant);
+    $('#quantity-bifold').html(bifoldQuant);
+
+    $('input[name="classic"]').val(classicQuant);
+    $('input[name="bifold"]').val(bifoldQuant);
+    $('input[name="quantity"]').val(totalQuant);
+
+    if (classicQuant <= 0) {
+        $('#classic-div').addClass('opaque');
+    } else {
+        $('#classic-div').removeClass('opaque');
+    }
+
+    if (bifoldQuant <= 0) {
+        $('#bifold-div').addClass('opaque');
+    } else {
+        $('#bifold-div').removeClass('opaque');
+    }
+}
+
+function addClassic() {
+    classicQuant += 1;
+    setTotal();
+    refreshDisplayedQuantities();
+}
+
+function removeClassic () {
+    if (classicQuant > 0) {
+        classicQuant -= 1;
+    }
+    setTotal();
+    refreshDisplayedQuantities();
+}
+
+function addBifold () {
+    bifoldQuant += 1;
+    setTotal();
+    refreshDisplayedQuantities();
+}
+
+function removeBifold () {
+    if (bifoldQuant > 0) {
+        bifoldQuant -= 1;
+    }
+    setTotal();
+    refreshDisplayedQuantities();
+}
+
+function startClassic () {
+    if (classicQuant <= 0) {
+        addClassic();
+    }
+}
+
+function startBifold () {
+    if (bifoldQuant <= 0) {
+        addBifold();
+    }
+}
 
 function showNext(element) {
     $(".formStage").css("display", "none");
@@ -25,10 +96,10 @@ function showNext(element) {
 }
 
 function orderValue() {
-    var quantity = $("#quantity").val();
+    //var quantity = $("#quantity").val();
     var value = 10;
 
-    return Math.max(quantity * value, 0);
+    return Math.max(totalQuant * value, 0);
 }
 
 function updateTotal() {
@@ -41,7 +112,8 @@ function verifyFields() {
     var passed = true;
 
     var fields = {
-        product : $('input[name="product"] option:selected').text(),
+        classic : $('input[name="classic"]').val(),
+        bifold : $('input[name="bifold"]').val(),
         quantity : $('input[name="quantity"]').val(),
         email : $('input[name="email"]').val(),
         firstName : $('input[name="first"]').val(),
@@ -59,19 +131,12 @@ function verifyFields() {
         cvc : $('input[name="cvc"]').val()
     };
 
-    console.log(fields.cardnumber);
-
     $("input").css({"border-color": "#cccccc", "color": "#888888"});
     $("input[type='submit']").css({"color": "#ffffff", "border-color": "#888888"});
     $("label").css("color", "#888888");
 
 
-    if (fields.quantity < 1) {
-        console.log('quantity failed: ' + fields.quantity);
-        passed = false;
-        $("#quantity").css({"border-color": "#D94E48", "color": "#D94E48"});
-        $("label[for='quantity']").css("color", "#D94E48");
-    } if (fields.email.indexOf("@") == -1) {
+    if (fields.email.indexOf("@") == -1) {
         console.log('email failed: ' + fields.email);
         $("#email").css({"border-color": "#D94E48", "color": "#D94E48"});
         $("label[for='email']").css("color", "#D94E48");
@@ -125,6 +190,11 @@ function verifyFields() {
         passed = false;
         $("#cvc").css({"border-color": "#D94E48", "color": "#D94E48"});
         $("label[for='cvc']").css("color", "#D94E48");
+    } if (fields.quantity < 1) {
+        console.log('quantity failed: ' + fields.quantity);
+        showNext("order");
+        passed = false;
+        $(".select-product").css({"border-color": "#D94E48"});
     }
 
     return passed;

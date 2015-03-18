@@ -16,6 +16,11 @@
             font-size: 1em;
 
         }
+
+        .grey {
+            color: #333333;
+        }
+
         div.container {
             width: 90%;
             max-width: 960px;
@@ -84,8 +89,7 @@
         }
 
         table td.left {
-            padding-left: 20px;
-            color: #333333;
+            padding-left: 30px;
         }
     </style>
 
@@ -104,15 +108,24 @@
     <h3>Order Deets</h3>
     <table>
         <tr>
-            <td>Product</td>
-            <td class="left">*|product|*</td>
+            <td class="grey">Product</td>
+            <td class="left grey">Quantity</td>
         </tr>
+        *|IF:classic!=0|*
         <tr>
-            <td>Quantity</td>
-            <td class="left">*|quantity|*</td>
+            <td>Classic</td>
+            <td class="left">*|classic|*</td>
         </tr>
+        *|END:IF|*
+        *|IF:bifold!=0|*
         <tr>
-            <td>Total</td>
+            <td>Bi-Fold</td>
+            <td class="left">*|bifold|*</td>
+        </tr>
+        *|END:IF|*
+        <tr></tr>
+        <tr>
+            <td class="grey">Total</td>
             <td class="left">*|total|*</td>
         </tr>
     </table>

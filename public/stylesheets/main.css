@@ -25,6 +25,8 @@ body {
 .right0 {margin-right: 0;}
 .mobile {display: none;}
 
+.hidden {display: none;}
+
 h1 {
     font-size: 2.4em;
     font-weight: 700;
@@ -170,6 +172,10 @@ div.formStage {
     vertical-align: top;
 }
 
+div.formStage.wider {
+    width: 500px;
+}
+
 div.full {
     width: 100%;
     max-width: 960px;
@@ -226,11 +232,31 @@ div.narrow {
     width: 45%;
 }
 
+div.opaque {
+    opacity: 0.5;
+}
+
 div.right {
     display: inline-block;
     float: right;
     min-height: 300px;
     vertical-align: top;
+}
+
+div.select-product {
+    display: inline-block;
+    width: 200px;
+    margin: 0 10px 10px 0;
+    padding: 10px 10px 10px 10px;
+    border: solid 1px #cccccc;
+    border-radius: 2px;
+
+    text-align: center;
+    vertical-align: top;
+}
+
+div.select-product h4 {
+    margin: 10px 5px 5px 5px;
 }
 
 div.third {
@@ -292,6 +318,11 @@ img.med {
 
 img.nav {
     display: none;
+}
+
+img.select-product-image {
+    height: 120px;
+    margin-left: 20px;
 }
 
 img.small {
