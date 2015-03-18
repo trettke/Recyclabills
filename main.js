@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var Pin = require('pinjs');
 var fs = require('fs');
+var https = require('https');
 var mandrill = require('mandrill-api/mandrill');
 
 var routes = require('./routes/index');
@@ -18,12 +19,16 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+http.get('*', function(req, res) {
+    res.redirect('https://recyclabills.com'+req.url);
+});
 
 app.use('/users', users);
 app.post('/process', function(req, res) {
@@ -63,7 +68,7 @@ app.post('/process', function(req, res) {
                 var params = {
                     "message": {
                         "from_email":"info@recyclabills.com",
-                        "to":[{"email":"taylor.rettke@gmail.com"}, {"email":req.body.email}],
+                        "to":[{"email":"taylor.rettke@gmail.com"}, {"email":"orders@recyclabills.com"}, {"email":req.body.email}],
                         "subject": "Get Excited - Recyclabills are Coming",
                         "global_merge_vars" : [
                             {"name" : "name",
@@ -135,6 +140,7 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(3001);
+http.listen(8080);
 
 module.exports = app;
 

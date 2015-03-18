@@ -272,6 +272,11 @@ img.headersmall {
     display: none;
 }
 
+img.inline-icon {
+    width: 14px;
+    height: 14px;
+}
+
 img.product {
     width: 200px;
     margin-left: 40px;
