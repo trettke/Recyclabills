@@ -46,25 +46,25 @@
                 <h2 class="grey">What would you like?</h2>
 
                 <div class="select-product opaque" id="classic-div">
-                    <h3 onclick="startClassic();">Classic</h3>
+                    <h3 class="grey" onclick="startClassic();">Classic</h3>
                     <img onclick="startClassic();" class="select-product-image" src="images/classic.jpg">
                     <h4>Quantity</h4>
 
                     <h4 class="grey">
-                        <a class="cabin" onclick="removeClassic();"><</a> &nbsp;
-                        <span id="quantity-classic">0</span> &nbsp;
+                        <a class="cabin" onclick="removeClassic();"><</a> &nbsp;&nbsp;
+                        <span id="quantity-classic">0</span> &nbsp;&nbsp;
                         <a class="cabin" onclick="addClassic();">></a>
                     </h4>
                 </div>
 
                 <div class="select-product opaque" id="bifold-div">
-                    <h3 onclick="startBifold();">Bi-Fold</h3>
+                    <h3 class="grey" onclick="startBifold();">Bi-Fold</h3>
                     <img onclick="startBifold();" class="select-product-image" src="images/bifold.jpg">
                     <h4>Quantity</h4>
 
                     <h4 class="grey">
-                        <a class="cabin" onclick="removeBifold();"><</a> &nbsp;
-                        <span id="quantity-bifold">0</span> &nbsp;
+                        <a class="cabin" onclick="removeBifold();"><</a> &nbsp;&nbsp;
+                        <span id="quantity-bifold">0</span> &nbsp;&nbsp;
                         <a class="cabin" onclick="addBifold();">></a>
                     </h4>
                 </div>
@@ -131,7 +131,9 @@
                 <input class="wide block" type="text" id="cardname" name="cardname"/>
 
                 <label for="cardnumber">Card Number <img class="inline-icon" src="images/lock-grey.svg" /></label>
-                <input class="wide block" type="text" id="cardnumber" name="cardnumber"/>
+                <input class="narrower" type="text" id="cardnumber" name="cardnumber"/>
+                <img class="card-type" src="images/mastercard.png" />
+                <img class="card-type" src="images/visa.png" />
 
                 <div class="inline">
                     <label for="expiryMonth">Expiry <img class="inline-icon" src="images/lock-grey.svg" /></label>
@@ -184,9 +186,9 @@
 <div class="footer">
     <div class="container">
         <ul class="footer-menu">
-            <li><a href="">Facebook</a></li>
-            <li><a href="">Twitter</a></li>
-            <li><a href="">Email</a></li>
+            <li><a target="_blank" href="https://facebook.com/recyclabills">Facebook</a></li>
+            <!--<li><a href="">Twitter</a></li>-->
+            <li><a href="mailto:info@recyclabills.com">info@recyclabills.com</a></li>
         </ul>
     </div>
 </div>

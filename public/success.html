@@ -14,6 +14,15 @@
 
 <body>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1562329967366611&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div class="container">
     <div class="header">
         <!-- <a href="index.html"><img class="title" src="Images/Soychange.svg" /></a>-->
@@ -34,14 +43,16 @@
             <a class="inline" href="mailto:info@recyclabills.com">info@recyclabills.com</a>.
             <br/><br/>
             We hope you love your new wallet as much as it loves you!</p>
+
+        <div class="fb-share-button" data-href="https://www.recyclabills.com" data-layout="button"></div>
     </div>
 </div>
 <div class="footer">
     <div class="container">
         <ul class="footer-menu">
-            <li><a href="">Facebook</a></li>
-            <li><a href="">Twitter</a></li>
-            <li><a href="">Email</a></li>
+            <li><a target="_blank" href="https://facebook.com/recyclabills">Facebook</a></li>
+            <!--<li><a href="">Twitter</a></li>-->
+            <li><a href="mailto:info@recyclabills.com">info@recyclabills.com</a></li>
         </ul>
     </div>
 </div>
