@@ -57,7 +57,7 @@ app.post('/process', function(req, res) {
         production: true
     });
 
-    var value = req.body.quantity * 100;
+    var value = req.body.quantity * 1000;
 
     pin.createCharge({
         amount: value,
