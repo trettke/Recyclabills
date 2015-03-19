@@ -26,6 +26,7 @@ body {
 .mobile {display: none;}
 
 .hidden {display: none;}
+.cabin {font-family: 'Cabin Condensed', 'Oswald', sans-serif;}
 
 h1 {
     font-size: 2.4em;
@@ -86,6 +87,7 @@ label {
 }
 
 .nav {display: none;}
+
 
 /* ANCHORS
 ------------------------------------------------------------ */
@@ -705,8 +707,19 @@ and (max-device-width: 480px) {
     div.formStage {
         display: block;
         max-width: none;
-        width: calc(80% - 50px);
+        width: calc(100% - 50px);
         margin: 0 50px 0 50px;
+    }
+
+    div.formStage.wider {
+        display: block;
+        max-width: none;
+        width: calc(100% - 50px);
+        margin: 0 50px 0 50px;
+    }
+
+    div.select-product {
+        width: 100%;
     }
 
     input {
