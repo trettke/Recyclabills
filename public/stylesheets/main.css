@@ -26,10 +26,6 @@ body {
 .mobile {display: none;}
 
 .hidden {display: none;}
-.cabin {
-    font-family: 'Cabin Condensed', 'Oswald', sans-serif;
-    font-size: 180%;
-}
 
 h1 {
     font-size: 2.4em;
